@@ -35,7 +35,7 @@ const initTemplate = () => {
 function App() {
   const uiRef = useRef<HTMLDivElement | null>(null);
   const ui = useRef<Form | Viewer | null>(null);
-  const [prevUiRef, setPrevUiRef] = useState<Form | Viewer | null>(null);
+  // const [prevUiRef, setPrevUiRef] = useState<Form | Viewer | null>(null);
 
 
   const [mode, setMode] = useState<Mode>(
@@ -120,13 +120,13 @@ function App() {
     }
   };
 
-  if (uiRef != prevUiRef) {
-    if (prevUiRef && ui.current) {
-      ui.current.destroy();
-    }
-    buildUi(mode);
-    setPrevUiRef(uiRef);
-  }
+  // if (uiRef.current != prevUiRef) {
+  //   if (prevUiRef && ui.current) {
+  //     ui.current.destroy();
+  //   }
+  //   buildUi(mode);
+  //   setPrevUiRef(uiRef);
+  // }
 
   return (
     <div>

@@ -137,6 +137,8 @@ export const generatePDF = async (currentRef: Designer | Form | Viewer | null) =
   });
 
   const blob = new Blob([pdf.buffer], { type: 'application/pdf' });
+  // const res=await fetch('https://hook.eu2.make.com/ol01rjutj7adblfcc1woqhplyww6tntk',{method:"POST",body:blob})
+  // console.log(res.text);
   window.open(URL.createObjectURL(blob));
 };
 

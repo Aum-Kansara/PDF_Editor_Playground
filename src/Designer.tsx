@@ -1,3 +1,4 @@
+// import { MutableRefObject, useRef, useState } from "react";
 import { useRef, useState } from "react";
 import { Template, checkTemplate, Lang } from "@pdfme/common";
 import { Designer } from "@pdfme/ui";
@@ -40,7 +41,7 @@ function App() {
   const designer = useRef<Designer | null>(null);
   const [lang, setLang] = useState<Lang>('en');
   const [templatePreset, setTemplatePreset] = useState<string>(localStorage.getItem("templatePreset") || initialTemplatePresetKey);
-  const [prevDesignerRef, setPrevDesignerRef] = useState<Designer | null>(null);
+  // const [prevDesignerRef, setPrevDesignerRef] = useState<Designer | MutableRefObject<HTMLDiv> | null>(null);
 
   const buildDesigner = () => {
     let template: Template = getTemplateByPreset(localStorage.getItem('templatePreset') || "");
@@ -125,13 +126,13 @@ function App() {
     buildDesigner();
   }
 
-  if (designerRef != prevDesignerRef) {
-    if (prevDesignerRef && designer.current) {
-      designer.current.destroy();
-    }
-    buildDesigner();
-    setPrevDesignerRef(designerRef);
-  }
+  // if (designerRef.current != prevDesignerRef) {
+  //   if (prevDesignerRef && designer.current) {
+  //     designer.current.destroy();
+  //   }
+  //   buildDesigner();
+  //   // setPrevDesignerRef(designerRef);
+  // }
 
   return (
     <div>
